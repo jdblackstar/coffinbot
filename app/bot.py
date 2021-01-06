@@ -8,13 +8,15 @@ import itertools
 import asyncio
 import json
 
+# cron imports
+import croniter
+import aiocron
+
 # discord imports
 import discord
 from discord.ext import commands
 from discord.utils import get
 
-# import cogs
-from admin import Admin
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -30,8 +32,11 @@ bot = commands.Bot('.', description='don\'t say uwu')
 ####################
 
 # maybe put module imports here too
-
+from admin import Admin
 bot.add_cog(Admin(bot))
+
+from boss import Alert
+bot.add_cog(Alert(bot))
 
 ###############################
 ##### EVENTS FOR TERMINAL #####
@@ -49,5 +54,12 @@ async def on_command_error(ctx, error):
 ###################
 ##### RUN BOT #####
 ###################
+
+
+# tests sending a message every 1 minute to the #gearscore channel
+# @aiocron.crontab('*/1 * * * *')
+# async def crontest():
+#     channel = bot.get_channel(792937647756410931)
+#     await channel.send('Sending a message every 1 minute.')
 
 bot.run(TOKEN)
