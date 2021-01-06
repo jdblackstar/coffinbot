@@ -28,8 +28,6 @@ bot = commands.Bot('.', description='don\'t say uwu')
 
 # maybe put module imports here too
 
-# bot.add_cog(Gamble(bot))
-
 ###############################
 ##### EVENTS FOR TERMINAL #####
 ###############################
