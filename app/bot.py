@@ -32,8 +32,8 @@ bot = commands.Bot('.', description='don\'t say uwu')
 ####################
 
 # maybe put module imports here too
-from admin import Admin
-bot.add_cog(Admin(bot))
+from general import General
+bot.add_cog(General(bot))
 
 from boss import Alert
 bot.add_cog(Alert(bot))
@@ -59,7 +59,7 @@ async def on_command_error(ctx, error):
 # tests sending a message every 1 minute to the #gearscore channel
 # @aiocron.crontab('*/1 * * * *')
 # async def crontest():
-#     channel = bot.get_channel(792937647756410931)
+#     channel = bot.get_channel(708190271225069568)
 #     await channel.send('Sending a message every 1 minute.')
 
 bot.run(TOKEN)
