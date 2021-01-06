@@ -13,6 +13,9 @@ import discord
 from discord.ext import commands
 from discord.utils import get
 
+# import cogs
+from admin import Admin
+
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -27,6 +30,8 @@ bot = commands.Bot('.', description='don\'t say uwu')
 ####################
 
 # maybe put module imports here too
+
+bot.add_cog(Admin(bot))
 
 ###############################
 ##### EVENTS FOR TERMINAL #####
